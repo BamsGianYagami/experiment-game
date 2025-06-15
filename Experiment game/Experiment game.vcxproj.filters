@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\render">
+      <UniqueIdentifier>{b3814fb4-fcdc-4b58-a086-18873db73678}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render">
+      <UniqueIdentifier>{12b6de95-7011-4560-853c-7a87bfbdf5bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\window manager">
+      <UniqueIdentifier>{6b41040d-d9eb-4c95-b310-7c1353406784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\window manager">
+      <UniqueIdentifier>{aaaf4e41-c0c4-41ff-af4c-f3db0104a74d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\audio">
+      <UniqueIdentifier>{6c6887da-13d9-41de-a0d6-5bfe8fe11f43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\audio">
+      <UniqueIdentifier>{be2c3337-5260-4f2a-9098-41c15ebebd13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\input">
+      <UniqueIdentifier>{e44d6e47-28cd-4e10-b1c4-f7df94d4a20e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\input">
+      <UniqueIdentifier>{2609aa0d-11cc-43ae-a1d0-e2008b75436c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\input\keyboard">
+      <UniqueIdentifier>{2f794a28-e77a-4420-a159-01a937fa64c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\input\keyboard">
+      <UniqueIdentifier>{fb522725-b7b4-470c-8ab1-7c99e8678bd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\input\mouse">
+      <UniqueIdentifier>{f3c326c5-ecaa-4a30-a91d-a463bd8b42e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\input\mouse">
+      <UniqueIdentifier>{acf75c44-db85-4048-b39e-4a21bd8f2c18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GUI">
+      <UniqueIdentifier>{516e41b5-c296-4403-9181-41988cd3d8e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI">
+      <UniqueIdentifier>{73b3dcf0-3ece-4025-897d-7f9998bc5760}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\input\keyboard\windows">
+      <UniqueIdentifier>{1a0af717-b280-46a6-8c89-1df9a8b21e5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\input\keyboard\windows">
+      <UniqueIdentifier>{c5f36cfd-56ce-4a13-bab1-17bd01952652}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\input\keyboard\android">
+      <UniqueIdentifier>{0f35add6-997c-4c23-b502-6574114e801e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\input\keyboard\android">
+      <UniqueIdentifier>{08edacfa-1064-4583-ad9a-ef25b2af23e9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderer.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowManagerWin32.cpp">
+      <Filter>Source Files\window manager</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenALAudio.cpp">
+      <Filter>Source Files\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardInputDevice.cpp">
+      <Filter>Source Files\input\keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseInputDevice.cpp">
+      <Filter>Source Files\input\mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsMouseBackend.cpp">
+      <Filter>Source Files\input\mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsKeyboardBackend.cpp">
+      <Filter>Source Files\input\keyboard\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsKeyMapper.cpp">
+      <Filter>Source Files\input\keyboard\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="AndroidKeyMapper.cpp">
+      <Filter>Source Files\input\keyboard\android</Filter>
+    </ClCompile>
+    <ClCompile Include="AndroidKeyboardBackend.cpp">
+      <Filter>Source Files\input\keyboard\android</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderer.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRenderer.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="IWindow.h">
+      <Filter>Header Files\window manager</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowManagerWin32.h">
+      <Filter>Header Files\window manager</Filter>
+    </ClInclude>
+    <ClInclude Include="IAudio.h">
+      <Filter>Header Files\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenALAudio.h">
+      <Filter>Header Files\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="IInputDevice.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardInputDevice.h">
+      <Filter>Header Files\input\keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="IKeyboardBackend.h">
+      <Filter>Header Files\input\keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseInputDevice.h">
+      <Filter>Header Files\input\mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="IMouseBackend.h">
+      <Filter>Header Files\input\mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseState.h">
+      <Filter>Header Files\input\mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsMouseBackend.h">
+      <Filter>Header Files\input\mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="IGUI.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardState.h">
+      <Filter>Header Files\input\keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyCode.h">
+      <Filter>Header Files\input\keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsKeyboardBackend.h">
+      <Filter>Header Files\input\keyboard\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsKeyMapper.h">
+      <Filter>Header Files\input\keyboard\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="AndroidKeyMapper.h">
+      <Filter>Header Files\input\keyboard\android</Filter>
+    </ClInclude>
+    <ClInclude Include="AndroidKeyboardBackend.h">
+      <Filter>Header Files\input\keyboard\android</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseDeltaState.h">
+      <Filter>Header Files\input\mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseButton.h">
+      <Filter>Header Files\input\mouse</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
