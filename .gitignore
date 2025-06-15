@@ -1,0 +1,21 @@
+# Visual Studio build files
+*.obj
+*.exe
+*.ilk
+*.pdb
+*.idb
+*.log
+*.tlog
+*.suo
+*.user
+*.VC.db
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+
+# Directories
+Debug/
+Release/
+ipch/
+.vs/
