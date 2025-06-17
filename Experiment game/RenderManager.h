@@ -46,9 +46,13 @@ namespace GE {
 		void clear();
 
 	private:
+		void renderWorld();
+		void renderOverlay();
+		void render2D();
 		IRenderer* renderer;
-		std::vector<DrawCommand> guiCommands;
+		std::vector<DrawCommand> twoDCommands;
 		std::vector<DrawCommand> worldCommands;
+		std::vector<DrawCommand> overlayCommands;
 	};
 
 }

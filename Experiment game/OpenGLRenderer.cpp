@@ -153,6 +153,8 @@ void OpenGLRenderer::Begin2D() {
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
     glLoadIdentity();
+
+	glDisable(GL_DEPTH_TEST); // GUI doesn't need depth
 }
 
 void OpenGLRenderer::End2D() {
@@ -195,4 +197,46 @@ void OpenGLRenderer::End3D() {
     glPopMatrix();
     glMatrixMode(GL_PROJECTION);
     glPopMatrix();
+}
+
+void OpenGLRenderer::BeginOverlay() {
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glLoadIdentity();
+
+    // Gunakan projection 3D yang sama seperti Begin3D
+    float fov = 60.0f;
+    float aspect = 800.0f / 600.0f;
+    float nearPlane = 0.1f;
+    float farPlane = 1000.0f;
+    float f = 1.0f / tanf(fov * 0.5f * 3.14159265f / 180.0f);
+
+    float proj[16] = {
+        f / aspect, 0,  0,                                 0,
+        0,          f,  0,                                 0,
+        0,          0,  (farPlane + nearPlane) / (nearPlane - farPlane), -1,
+        0,          0,  (2 * farPlane * nearPlane) / (nearPlane - farPlane), 0
+    };
+
+    glLoadMatrixf(proj);
+
+    glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
+    glLoadIdentity();
+
+    // Set depth state untuk overlay
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_ALWAYS);    // Selalu lolos depth test
+    glDepthMask(GL_FALSE);     // Jangan tulis ke depth buffer
+}
+
+void OpenGLRenderer::EndOverlay() {
+	glMatrixMode(GL_MODELVIEW);
+    glPopMatrix();
+
+    glMatrixMode(GL_PROJECTION);
+    glPopMatrix();
+
+    glDepthFunc(GL_LESS);             // Kembalikan depth state
+    glDepthMask(GL_TRUE);
 }

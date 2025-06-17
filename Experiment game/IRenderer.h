@@ -39,9 +39,11 @@ public:
      */
     virtual void Execute(const DrawCommand& command) = 0;
 
-	// Untuk mengatur konteks 2D dan 3D rendering
+	// Untuk mengatur konteks 2D, 3D dan Overlay rendering
 	virtual void Begin2D() = 0;
 	virtual void End2D() = 0;
 	virtual void Begin3D() = 0;
 	virtual void End3D() = 0;
+	virtual void BeginOverlay() =0;
+	virtual void EndOverlay() =0;
 };

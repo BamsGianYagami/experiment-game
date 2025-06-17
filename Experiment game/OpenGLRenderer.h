@@ -25,6 +25,8 @@ private:
     void End2D();
 	void Begin3D() override;
 	void End3D() override;
+	void BeginOverlay() override;
+	void EndOverlay() override;
 
     HDC hDC;
     HGLRC hGLRC;

@@ -55,28 +55,55 @@ namespace GE {
 		worldCommands.push_back(cmd);
 	}
 
-	void RenderManager::flush() {
-		if (!renderer) return;
-
+	void RenderManager::renderWorld(){
 		renderer->Begin3D();
 		for (std::vector<DrawCommand>::iterator it = worldCommands.begin(); it != worldCommands.end(); ++it) {
 			renderer->Execute(*it);
 		}
 		renderer->End3D();
+	}
 
+	void RenderManager::renderOverlay(){
+		renderer->BeginOverlay();
+		for (std::vector<DrawCommand>::iterator it = overlayCommands.begin(); it != overlayCommands.end(); ++it) {
+			renderer->Execute(*it);
+		}
+		renderer->EndOverlay();
+	}
+
+	void RenderManager::render2D(){
 		renderer->Begin2D();
-		for (std::vector<DrawCommand>::iterator it = guiCommands.begin(); it != guiCommands.end(); ++it) {
+		for (std::vector<DrawCommand>::iterator it = twoDCommands.begin(); it != twoDCommands.end(); ++it) {
 			renderer->Execute(*it);
 		}
 		renderer->End2D();
+	}
+
+	void RenderManager::flush() {
+		if (!renderer) return;
+
+		// --- PASS 1: Dunia 3D (dengan depth test & depth write)
+		if(!worldCommands.empty())
+			renderWorld();
+
+		// --- PASS 2: Overlay 3D atau HUD (depth test khusus, no depth write)
+		if(!overlayCommands.empty())
+			renderOverlay();
+
+		// --- PASS 3: GUI 2D (tanpa depth sama sekali, pure ortho)
+		if(!twoDCommands.empty())
+			render2D();
+		
 
 		worldCommands.clear();
-		guiCommands.clear();
+		overlayCommands.clear();
+		twoDCommands.clear();
 	}
 
 	void RenderManager::clear() {
 		worldCommands.clear();
-		guiCommands.clear();
+		overlayCommands.clear();
+		twoDCommands.clear();
 	}
 }
 
