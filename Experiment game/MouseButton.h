@@ -1,10 +1,13 @@
 #pragma once
 
-enum MouseButton {
-    Left,
-    Right,
-    Middle,
-    Mouse4,
-    Mouse5
-    // Tambahkan sesuai kebutuhan
-};
+namespace GE {
+	enum MouseButton {
+		MouseButton_Left,
+		MouseButton_Right,
+		MouseButton_Middle,
+		MouseButton_Mouse4,
+		MouseButton_Mouse5
+		// Tambahkan sesuai kebutuhan
+	};
+
+}

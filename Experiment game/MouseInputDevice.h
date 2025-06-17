@@ -29,9 +29,9 @@ public:
      */
     const MouseDeltaState& getDelta() const;
 
-	bool isMouseDown(MouseButton button) const;
-	bool isMouseUp(MouseButton button) const;
-	bool isMouseHeld(MouseButton button) const;
+	bool isMouseDown(GE::MouseButton button) const;
+	bool isMouseUp(GE::MouseButton button) const;
+	bool isMouseHeld(GE::MouseButton button) const;
 
 private:
     MouseState state;

@@ -2,14 +2,14 @@
 #include "StdAfx.h"
 #include "MouseInputDevice.h"
 
-
+using namespace GE;
 static bool getButtonState(const MouseState& s, MouseButton button) {
     switch (button) {
-        case MouseButton::Left:    return s.leftButton;
-        case MouseButton::Right:   return s.rightButton;
-        case MouseButton::Middle:  return s.middleButton;
-        case MouseButton::Mouse4:  return s.mouse4Button;
-        case MouseButton::Mouse5:  return s.mouse5Button;
+        case MouseButton_Left:    return s.leftButton;
+        case MouseButton_Right:   return s.rightButton;
+        case MouseButton_Middle:  return s.middleButton;
+        case MouseButton_Mouse4:  return s.mouse4Button;
+        case MouseButton_Mouse5:  return s.mouse5Button;
         default:                   return false;
     }
 }

@@ -111,6 +111,9 @@
     <ClCompile Include="AndroidKeyboardBackend.cpp">
       <Filter>Source Files\input\keyboard\android</Filter>
     </ClCompile>
+    <ClCompile Include="RenderManager.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngine.h">
@@ -190,6 +193,21 @@
     </ClInclude>
     <ClInclude Include="MouseButton.h">
       <Filter>Header Files\input\mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="IRendererGUI.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IWidget.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderManager.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawCommand.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="MathTypes.h">
+      <Filter>Header Files\render</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

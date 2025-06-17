@@ -2,8 +2,8 @@
 
 #include "MouseState.h"
 #include "KeyboardState.h"
+#include "IRendererGUI.h"
 
-class IRendererGUI;
 class IWidget;
 
 /**

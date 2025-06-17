@@ -122,7 +122,9 @@ void OpenALAudio::setRoomPreset(const std::string& presetName) {
 }
 
 bool OpenALAudio::loadWAV(const std::string& filepath, ALuint& outBuffer) {
-    FILE* file = fopen(filepath.c_str(), "rb");
+    FILE* file = nullptr;
+	fopen_s(&file, filepath.c_str(), "rb");
+
     if (!file) {
         std::cerr << "Gagal membuka file WAV: " << filepath << std::endl;
         return false;

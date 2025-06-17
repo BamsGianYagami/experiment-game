@@ -96,8 +96,10 @@
     <ClCompile Include="OpenGLRenderer.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="WindowManagerWin32.cpp" />
     <ClCompile Include="WindowsKeyboardBackend.cpp" />
@@ -107,6 +109,7 @@
   <ItemGroup>
     <ClInclude Include="AndroidKeyboardBackend.h" />
     <ClInclude Include="AndroidKeyMapper.h" />
+    <ClInclude Include="DrawCommand.h" />
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="IAudio.h" />
     <ClInclude Include="IGUI.h" />
@@ -115,16 +118,20 @@
     <ClInclude Include="IMouseBackend.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="IRenderer.h" />
+    <ClInclude Include="IRendererGUI.h" />
+    <ClInclude Include="IWidget.h" />
     <ClInclude Include="IWindow.h" />
     <ClInclude Include="KeyboardInputDevice.h" />
     <ClInclude Include="KeyboardState.h" />
     <ClInclude Include="KeyCode.h" />
+    <ClInclude Include="MathTypes.h" />
     <ClInclude Include="MouseButton.h" />
     <ClInclude Include="MouseDeltaState.h" />
     <ClInclude Include="MouseInputDevice.h" />
     <ClInclude Include="MouseState.h" />
     <ClInclude Include="OpenALAudio.h" />
     <ClInclude Include="OpenGLRenderer.h" />
+    <ClInclude Include="RenderManager.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="WindowManagerWin32.h" />

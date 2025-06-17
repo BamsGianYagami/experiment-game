@@ -3,6 +3,8 @@
 #include <GL/gl.h>
 #include <iostream>
 
+using namespace GE;
+
 OpenGLRenderer::OpenGLRenderer() : hDC(NULL), hGLRC(NULL) {
 	std::cout << "OpenGLRenderer created\n";
 }
@@ -52,15 +54,18 @@ bool OpenGLRenderer::init(IWindow* window) {
 
     if (!wglMakeCurrent(hDC, hGLRC)) return false;
 
+    std::cout << "OpenGL context initialized successfully.\n";
+
     return true;
 }
 
-void OpenGLRenderer::render() {
-	//std::cout << "[OpenGLRenderer] Rendering frame...\n";
-    // Clear the buffer color
+void OpenGLRenderer::beginFrame(){
+	// Clear with black, could be configurable later
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT);
+}
 
+void OpenGLRenderer::endFrame() {
     SwapBuffers(hDC);
 }
 
@@ -75,4 +80,119 @@ void OpenGLRenderer::shutdown() {
         ReleaseDC(WindowFromDC(hDC), hDC);
         hDC = NULL;
     }
+}
+
+// ---------- Tambahan baru untuk DrawCommand support ----------
+
+void OpenGLRenderer::Execute(const DrawCommand& command) {
+    switch (command.type) {
+		case DrawCommand_Rect:
+            DrawRect(command.position, command.size, command.color);
+            break;
+		
+		case DrawCommand_Text:
+            DrawText(command.text, command.position, command.fontSize, command.color);
+            break;
+
+        default:
+            break;
+    }
+}
+
+void OpenGLRenderer::DrawRect(const Vector2& pos, const Vector2& size, const Color& color) {
+    glDisable(GL_TEXTURE_2D); // Untuk solid color
+    glColor4f(color.r, color.g, color.b, color.a);
+
+    glBegin(GL_QUADS);
+    glVertex2f(pos.x,         pos.y);
+    glVertex2f(pos.x + size.x, pos.y);
+    glVertex2f(pos.x + size.x, pos.y + size.y);
+    glVertex2f(pos.x,         pos.y + size.y);
+    glEnd();
+}
+
+void OpenGLRenderer::DrawText(const std::string& text, const Vector2& position, float fontSize, const Color& color) {
+    if (!hDC) return;
+
+    // Pilih font dari GDI
+    HFONT hFont = CreateFontA(
+        static_cast<int>(fontSize), 0, 0, 0,
+        FW_NORMAL, FALSE, FALSE, FALSE,
+        ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
+        ANTIALIASED_QUALITY, FF_DONTCARE | DEFAULT_PITCH,
+        "Arial"
+    );
+
+    HFONT oldFont = (HFONT)SelectObject(hDC, hFont);
+
+    // Buat display list untuk 256 karakter ASCII
+    const GLuint base = 1000;
+    wglUseFontBitmapsA(hDC, 0, 256, base);
+
+    glColor4f(color.r, color.g, color.b, color.a);
+
+    // Pindah ke posisi (ingat: posisi di OpenGL window space)
+    glRasterPos2f(position.x, position.y);
+
+    glListBase(base);
+    glCallLists(static_cast<GLsizei>(text.length()), GL_UNSIGNED_BYTE, text.c_str());
+
+    // Cleanup
+    SelectObject(hDC, oldFont);
+    DeleteObject(hFont);
+}
+
+void OpenGLRenderer::Begin2D() {
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glLoadIdentity();
+
+    // Sementara asumsikan 800x600, akan kita ambil dari window nanti
+    glOrtho(0, 800, 600, 0, -1, 1); // Origin kiri atas
+
+    glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
+    glLoadIdentity();
+}
+
+void OpenGLRenderer::End2D() {
+    glMatrixMode(GL_MODELVIEW);
+    glPopMatrix();
+
+    glMatrixMode(GL_PROJECTION);
+    glPopMatrix();
+}
+
+void OpenGLRenderer::Begin3D() {
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glLoadIdentity();
+
+	//TODO: ini 4x4 matrix, tadinya pakai untuk untuk menghindari gluPerspective tapi nanti harusnya bikin library sendiri
+    float fov = 60.0f;
+    float aspect = 800.0f / 600.0f;
+    float nearPlane = 0.1f;
+    float farPlane = 1000.0f;
+    float f = 1.0f / tanf(fov * 0.5f * 3.14159265f / 180.0f);
+
+    float proj[16] = {
+        f / aspect, 0,  0,                                 0,
+        0,          f,  0,                                 0,
+        0,          0,  (farPlane + nearPlane) / (nearPlane - farPlane), -1,
+        0,          0,  (2 * farPlane * nearPlane) / (nearPlane - farPlane), 0
+    };
+
+    glLoadMatrixf(proj);
+
+    glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
+    glLoadIdentity();
+}
+
+
+void OpenGLRenderer::End3D() {
+    glMatrixMode(GL_MODELVIEW);
+    glPopMatrix();
+    glMatrixMode(GL_PROJECTION);
+    glPopMatrix();
 }

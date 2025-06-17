@@ -16,6 +16,10 @@
 #include "WindowManagerWin32.h"
 #include "OpenALAudio.h"
 
+#include "RenderManager.h"      // agar bisa SubmitCommand
+#include "DrawCommand.h"
+#include "MathTypes.h"          // Vector2, dll
+
 class GameEngine {
 public:
     GameEngine();
@@ -38,4 +42,8 @@ private:
 	IAudio* audio;
 	KeyboardInputDevice* keyboard;
 	MouseInputDevice* mouse;
+	RenderManager* renderManager;
+
+	void debugInput();   // Fungsi bantu debugging input
+    void debugRender();  // Fungsi bantu submit dan render GUI test
 };
