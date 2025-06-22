@@ -6,7 +6,7 @@ public:
     WindowManagerWin32();
     ~WindowManagerWin32();
 
-    bool create(int width, int height, const wchar_t* title) override;
+    bool create(const Vector2& resolution, const wchar_t* title) override;
     void processEvents() override;
     bool shouldClose() const override;
     NativeWindowHandle getNativeHandle() const override;

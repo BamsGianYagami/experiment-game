@@ -112,6 +112,7 @@
   <ItemGroup>
     <ClInclude Include="AndroidKeyboardBackend.h" />
     <ClInclude Include="AndroidKeyMapper.h" />
+    <ClInclude Include="SystemConfig.h" />
     <ClInclude Include="DrawCommand.h" />
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="IAudio.h" />

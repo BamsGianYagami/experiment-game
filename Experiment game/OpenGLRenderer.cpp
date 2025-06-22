@@ -16,6 +16,7 @@ OpenGLRenderer::~OpenGLRenderer() {
 
 bool OpenGLRenderer::init(IWindow* window) {
     NativeWindowHandle handle = window->getNativeHandle();
+	this->resolution = window->getWindowResolution();
 
     if (handle.type != NativeWindowHandle::Win32) {
         std::cerr << "Unsupported platform for OpenGLRenderer.\n";
@@ -146,9 +147,9 @@ void OpenGLRenderer::Begin2D() {
     glMatrixMode(GL_PROJECTION);
     glPushMatrix();
     glLoadIdentity();
-
-    // Sementara asumsikan 800x600, akan kita ambil dari window nanti
-    glOrtho(0, 800, 600, 0, -1, 1); // Origin kiri atas
+	int horizontal = static_cast<float>(resolution->x);
+	int vertical = static_cast<float>(resolution->y);
+    glOrtho(0, horizontal, vertical, 0, -1, 1); // Origin kiri atas
 
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
@@ -172,7 +173,7 @@ void OpenGLRenderer::Begin3D() {
 
 	//TODO: ini 4x4 matrix, tadinya pakai untuk untuk menghindari gluPerspective tapi nanti harusnya bikin library sendiri
     float fov = 60.0f;
-    float aspect = 800.0f / 600.0f;
+	float aspect = resolution->x / resolution->y;
     float nearPlane = 0.1f;
     float farPlane = 1000.0f;
     float f = 1.0f / tanf(fov * 0.5f * 3.14159265f / 180.0f);
@@ -206,7 +207,7 @@ void OpenGLRenderer::BeginOverlay() {
 
     // Gunakan projection 3D yang sama seperti Begin3D
     float fov = 60.0f;
-    float aspect = 800.0f / 600.0f;
+    float aspect = resolution->x / resolution->y;
     float nearPlane = 0.1f;
     float farPlane = 1000.0f;
     float f = 1.0f / tanf(fov * 0.5f * 3.14159265f / 180.0f);

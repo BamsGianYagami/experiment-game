@@ -18,7 +18,7 @@ void InputManager::registerDevice(IInputDevice* device) {
 template<typename T> T* InputManager::getDevice(){
 	for (std::vector<IInputDevice*>::iterator it = devices.begin(); it != devices.end(); ++it) {
 		if (T* typedDevice = dynamic_cast<T*>(*it)) {
-            std::cout << "Found device of type: " << typeid(*typedDevice).name() << "\n";
+            //std::cout << "Found device of type: " << typeid(*typedDevice).name() << "\n";
             return typedDevice;
         }
     }
@@ -31,7 +31,7 @@ template<typename T> T* InputManager::getDevice(){
 void InputManager::updateAllDevices() {
     for (std::vector<IInputDevice*>::iterator it = devices.begin(); it != devices.end(); ++it) {
 		IInputDevice* device = *it;
-        std::cout << "Updating device of type: " << typeid(*device).name() << "\n";
+        //std::cout << "Updating device of type: " << typeid(*device).name() << "\n";
         device->update();
     }
 }

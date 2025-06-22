@@ -4,7 +4,16 @@
 #include "DrawCommand.h"
 #include "IRenderer.h"
 
+
 namespace GE {
+
+	struct TextMetrics {
+		float width;
+		float ascent;
+		float descent;
+		float height;
+	};
+
 	/**
 	 * @brief Manajer utama untuk mengatur dan mengirim perintah rendering ke renderer.
 	 * Bertugas menampung draw command dan melakukan submit di akhir frame.
@@ -24,6 +33,7 @@ namespace GE {
 		 * @brief Menambahkan perintah DrawRect ke antrian.
 		 */
 		void DrawRect(const Vector2& position, const Vector2& size, const Color& color);
+		
 		/**
 		 * @brief Menambahkan perintah DrawText ke antrian.
 		 */

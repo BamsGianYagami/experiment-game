@@ -6,7 +6,11 @@ WindowManagerWin32::WindowManagerWin32()
 
 WindowManagerWin32::~WindowManagerWin32() {}
 
-bool WindowManagerWin32::create(int width, int height, const wchar_t* title) {
+bool WindowManagerWin32::create(const Vector2& resolution, const wchar_t* title) {
+	this->resolution = &resolution;
+
+	int width = static_cast<int>(resolution.x);
+	int height = static_cast<int>(resolution.y);
     HINSTANCE hInstance = GetModuleHandle(NULL);
     const wchar_t* className = L"MyGameWindowClass";
 

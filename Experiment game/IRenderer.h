@@ -2,6 +2,7 @@
 
 #include "DrawCommand.h"
 #include "IWindow.h"
+#include "SystemConfig.h"
 
 using namespace GE;
 
@@ -46,4 +47,7 @@ public:
 	virtual void End3D() = 0;
 	virtual void BeginOverlay() =0;
 	virtual void EndOverlay() =0;
+
+protected:
+	const Vector2* resolution;
 };

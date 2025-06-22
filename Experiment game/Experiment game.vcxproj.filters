@@ -236,6 +236,9 @@
     <ClInclude Include="UICoreSystem.h">
       <Filter>Header Files\GUI\core</Filter>
     </ClInclude>
+    <ClInclude Include="SystemConfig.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

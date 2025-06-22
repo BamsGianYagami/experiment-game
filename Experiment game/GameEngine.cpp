@@ -20,7 +20,7 @@ void GameEngine::init() {
 
     // Window
     window = new WindowManagerWin32();
-    if (!window->create(800, 600, L"My Game Window")) {
+	if (!window->create(sysConfig.video.resolution, L"My Game Window")) {
         std::cerr << "Failed to create window.\n";
         return;
     }
@@ -122,15 +122,44 @@ void GameEngine::debugInput() {
 }
 
 void GameEngine::debugRender() {
+    float screenW = sysConfig.video.resolution.x;
+    float screenH = sysConfig.video.resolution.y;
+
+    std::string text = "Halo Dunia Penuh Derita";
+    float fontSize = 18.0f;
+
+    // Ukuran teks
+    float charWidth = fontSize * 0.52f; //todo: tiap string karakternya panjangnya gak selalu sama, butuh database lebar per karakter.
+    float charHeight = fontSize;
+    float textW = charWidth * text.length();
+    float textH = charHeight;
+
+    // Padding per sisi
+    float paddingLeft   = 4.0f;
+    float paddingRight  = 8.0f;
+    float paddingTop    = 2.0f;
+    float paddingBottom = 2.0f;
+
+    // Ukuran rect
+    float rectW = textW + paddingLeft + paddingRight;
+    float rectH = textH + paddingTop + paddingBottom;
+
+    // Posisi rect center
+    float rectX = (screenW - rectW) * 0.5f;
+    float rectY = (screenH - rectH) * 0.5f;
+
+    // Vertical baseline offset
+    float ascent = fontSize * 0.8f;
+    float descent = fontSize * 0.2f;
+    float baselineY = rectY + rectH * 0.5f + (ascent - (ascent + descent) * 0.5f);
+
+    // Posisi teks (dari rect top-left)
+    float textX = rectX + paddingLeft;
+
+    // Draw
     renderer->beginFrame();
-
-    // Hardcoded posisi tengah window 800x600
-    // Rect berukuran 200x50 di tengah
-    renderManager->DrawRect(Vector2(300, 275), Vector2(200, 50), Color::White());
-
-    // Teks kira-kira berada di dalam rect (tidak presisi tengah teks)
-    renderManager->DrawText("Halo Dunia Penuh Derita", Vector2(310, 305), 18.0f, Color::Black());
-
+    renderManager->DrawRect(Vector2(rectX, rectY), Vector2(rectW, rectH), Color::Red());
+    renderManager->DrawText(text, Vector2(textX, baselineY), fontSize, Color::White());
     renderManager->flush();
     renderer->endFrame();
 }

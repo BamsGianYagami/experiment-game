@@ -20,6 +20,8 @@
 #include "DrawCommand.h"
 #include "MathTypes.h"          // Vector2, dll
 
+#include "SystemConfig.h"
+
 class GameEngine {
 public:
     GameEngine();
@@ -34,6 +36,8 @@ public:
 	//void init(HINSTANCE hInstance);
     void update();
     void shutdown();
+
+	SystemConfig sysConfig;
 
 private:
     InputManager* inputManager;
