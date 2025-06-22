@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameEngine" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAACAAABAAAAAGAhAAAAgAIoEAAAAAAEgAA=</HashCode>
+      <FileName>GameEngine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IRenderer" Collapsed="true">
+    <Position X="3.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAgQAAAAQBgAAAAAAAAGQAAAIAAAAAAAAAABA=</HashCode>
+      <FileName>IRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenGLRenderer" Collapsed="true">
+    <Position X="3.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgIAgQAAAAQBAEAAABAAQGQAAAIAAAIAAAAAAJA=</HashCode>
+      <FileName>OpenGLRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IWindow" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAQAAAAAAAABAAGAAAAA=</HashCode>
+      <FileName>IWindow.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowManagerWin32" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIIAAAAAAAAAAAIEAAAQgAAAAAAABAACAAAAA=</HashCode>
+      <FileName>WindowManagerWin32.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAudio" Collapsed="true">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAABAAABAAAABAAgAAAACCAAKEAIAAAAAgAAEAAA=</HashCode>
+      <FileName>IAudio.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenALAudio" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMACAABCAABAAAQBAAgAAAAACAAOEAIAAAAQgAAEAAA=</HashCode>
+      <FileName>OpenALAudio.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IInputDevice" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>IInputDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputManager" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAKAAAAAAAAAAAAAEAAAIgAQEEAAAAAIAAAAAA=</HashCode>
+      <FileName>InputManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IKeyboardBackend" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAEAAA=</HashCode>
+      <FileName>IKeyboardBackend.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KeyboardInputDevice" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAIIAAQCBAAAAAIAABAAAAIAAAEAAA=</HashCode>
+      <FileName>KeyboardInputDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsKeyboardBackend" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAQAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>WindowsKeyboardBackend.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndroidKeyboardBackend" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAACAAAAAAAAAgAAAAgAAAAAAAQAEAAAEAAAEAAA=</HashCode>
+      <FileName>AndroidKeyboardBackend.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMouseBackend" Collapsed="true">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAEAAA=</HashCode>
+      <FileName>IMouseBackend.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseInputDevice" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAQAAAAASAQEABAAAAAAEAAAAAAEAAAIAEAEAAA=</HashCode>
+      <FileName>MouseInputDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsMouseBackend" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAQAAAAAAEAAA=</HashCode>
+      <FileName>WindowsMouseBackend.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGUI" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAIAAAAAABAgAAAAAAAAAAAAAAAAAAAAUAAI=</HashCode>
+      <FileName>IGUI.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IRendererGUI" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABCAEBgAAAAAAAAAABAAAAAgQAAIAAAAAAAAAAAAAYA=</HashCode>
+      <FileName>IRendererGUI.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IWidget" Collapsed="true">
+    <Position X="8" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAABAAAAAAFIAABAAAAAIgAAYBABAEgAAIA=</HashCode>
+      <FileName>IWidget.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UICoreSystem" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEACAAEAAAAAAAAAAQAAAAAAAAAAAAABAAAAIAUAEA=</HashCode>
+      <FileName>UICoreSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIPointer" Collapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAIAQIIAAAIEAMAIAAJAAAAAAQAAAAIAgwBEABAgA=</HashCode>
+      <FileName>UIPointer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIPointerManager" Collapsed="true">
+    <Position X="8" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAACAAAAAAAAAAAIAAgAAAAAAMAAA=</HashCode>
+      <FileName>UIPointerManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GE::RenderManager" Collapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGAAAABAAAAQAAAAQgAAAAAAQAAACAAAAEgEABAAgIA=</HashCode>
+      <FileName>RenderManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="NativeWindowHandle" Collapsed="true">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAACAAAAAAA=</HashCode>
+      <FileName>IWindow.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SoundHandle" Collapsed="true">
+    <Position X="13.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>IAudio.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="KeyboardState" Collapsed="true">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAABAAAAAAKEAAAAAAAAAAAAAABIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>KeyboardState.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="MouseDeltaState" Collapsed="true">
+    <Position X="8" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACBAAAAAAAQAAAAAAAAAAAAAIAAIAAANBgggg=</HashCode>
+      <FileName>MouseDeltaState.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="MouseState" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAIAQAAgEAAAAAAAQAAAAAAAAIAAABgAAAAAAA=</HashCode>
+      <FileName>MouseState.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Vector2" Collapsed="true">
+    <Position X="8" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAEAAAAAAAQAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>MathTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Vector3" Collapsed="true">
+    <Position X="9.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAQAAAAAAAABgAQAAAAA=</HashCode>
+      <FileName>MathTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Color" Collapsed="true">
+    <Position X="8" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAAAAAAAAAgAAAAAAAAAABAAAAAAoAQABgBAAAAA=</HashCode>
+      <FileName>MathTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Matrix4x4" Collapsed="true">
+    <Position X="13.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAA=</HashCode>
+      <FileName>MathTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GE::DrawCommand" Collapsed="true">
+    <Position X="9.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgACAIAAJAAAAAAFIACIAAAABAAAAAA=</HashCode>
+      <FileName>DrawCommand.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="KeyCode" Collapsed="true">
+    <Position X="9.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YgKBAGAgs4kBCCCQ2UgAATAIQAQgEIwEIIBEAAIJCsA=</HashCode>
+      <FileName>KeyCode.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GE::DrawCommandType" Collapsed="true">
+    <Position X="8" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAEBAAABAAAIAAAAAAA=</HashCode>
+      <FileName>DrawCommand.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GE::MouseButton" Collapsed="true">
+    <Position X="11.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAACAAAAAAAgAAEAAAAAAAA=</HashCode>
+      <FileName>MouseButton.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

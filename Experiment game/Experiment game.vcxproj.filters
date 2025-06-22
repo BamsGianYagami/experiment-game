@@ -67,6 +67,15 @@
     <Filter Include="Source Files\input\keyboard\android">
       <UniqueIdentifier>{08edacfa-1064-4583-ad9a-ef25b2af23e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\util">
+      <UniqueIdentifier>{e964ed42-f3a6-412a-9f06-01dc9729518a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GUI\core">
+      <UniqueIdentifier>{35bf0a3f-ce53-4ce4-aff8-0cc48815e6ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI\core">
+      <UniqueIdentifier>{657896ca-23d8-4ac0-a94b-f9bafaf03427}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -113,6 +122,15 @@
     </ClCompile>
     <ClCompile Include="RenderManager.cpp">
       <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="UIPointer.cpp">
+      <Filter>Source Files\GUI\core</Filter>
+    </ClCompile>
+    <ClCompile Include="UIPointerManager.cpp">
+      <Filter>Source Files\GUI\core</Filter>
+    </ClCompile>
+    <ClCompile Include="UICoreSystem.cpp">
+      <Filter>Source Files\GUI\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -207,7 +225,19 @@
       <Filter>Header Files\render</Filter>
     </ClInclude>
     <ClInclude Include="MathTypes.h">
-      <Filter>Header Files\render</Filter>
+      <Filter>Header Files\util</Filter>
     </ClInclude>
+    <ClInclude Include="UIPointer.h">
+      <Filter>Header Files\GUI\core</Filter>
+    </ClInclude>
+    <ClInclude Include="UIPointerManager.h">
+      <Filter>Header Files\GUI\core</Filter>
+    </ClInclude>
+    <ClInclude Include="UICoreSystem.h">
+      <Filter>Header Files\GUI\core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

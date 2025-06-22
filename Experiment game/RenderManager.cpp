@@ -20,7 +20,7 @@ namespace GE {
 		cmd.position = position;
 		cmd.size = size;
 		cmd.color = color;
-		guiCommands.push_back(cmd);
+		twoDCommands.push_back(cmd);
 	}
 
 	void RenderManager::DrawText(const std::string& text, const Vector2& position, float fontSize, const Color& color, int layer) {
@@ -33,7 +33,7 @@ namespace GE {
 		cmd.layer = layer;
 		cmd.depthTest = false;  // biasanya teks tidak pakai depth test
 
-		guiCommands.push_back(cmd);
+		twoDCommands.push_back(cmd);
 	}
 
 	void RenderManager::DrawMesh(int meshID, const Matrix4x4& transform) {

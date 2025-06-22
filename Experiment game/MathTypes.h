@@ -12,6 +12,18 @@ struct Vector2 {
     Vector2(float xx, float yy) : x(xx), y(yy) {}
 
     static Vector2 Zero() { return Vector2(0, 0); }
+
+    // Operator pengurangan
+    Vector2 operator-(const Vector2& other) const {
+        return Vector2(x - other.x, y - other.y);
+    }
+
+    // Fungsi panjang vektor
+    float length() const {
+        return std::sqrt(x * x + y * y);
+    }
+
+    // (Opsional) Operator penjumlahan, skalar, dll bisa ditambah nanti
 };
 
 /**

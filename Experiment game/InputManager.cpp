@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "InputManager.h"
+#include <typeinfo>   // untuk typeid
+
 
 InputManager::InputManager() {
     std::cout << "InputHandler created\n";
@@ -11,29 +13,25 @@ InputManager::~InputManager() {
 
 void InputManager::registerDevice(IInputDevice* device) {
     devices.push_back(device);
+}
 
-    // Coba cast ke masing-masing tipe input
-    if (KeyboardInputDevice* kbd = dynamic_cast<KeyboardInputDevice*>(device)) {
-        keyboard = kbd;
+template<typename T> T* InputManager::getDevice(){
+	for (std::vector<IInputDevice*>::iterator it = devices.begin(); it != devices.end(); ++it) {
+		if (T* typedDevice = dynamic_cast<T*>(*it)) {
+            std::cout << "Found device of type: " << typeid(*typedDevice).name() << "\n";
+            return typedDevice;
+        }
     }
-	else if (MouseInputDevice* ms = dynamic_cast<MouseInputDevice*>(device)) {
-        mouse = ms;
-    }
-//	else if (GamepadInputDevice* gp = dynamic_cast<GamepadInputDevice*>(device)) {
-//        gamepad = gp;
-//    }
+    std::cout << "No device of type: " << typeid(T).name() << " found.\n";
+    return nullptr;
 }
 
-KeyboardInputDevice* InputManager::getKeyboard() {
-    return keyboard; // <- ini contoh implementasi
-}
 
-MouseInputDevice* InputManager::getMouse() {
-    return mouse;
-}
 
 void InputManager::updateAllDevices() {
     for (std::vector<IInputDevice*>::iterator it = devices.begin(); it != devices.end(); ++it) {
-        (*it)->update();
+		IInputDevice* device = *it;
+        std::cout << "Updating device of type: " << typeid(*device).name() << "\n";
+        device->update();
     }
 }
