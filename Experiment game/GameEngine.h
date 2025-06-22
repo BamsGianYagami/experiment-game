@@ -18,6 +18,8 @@
 
 #include "RenderManager.h"      // agar bisa SubmitCommand
 #include "DrawCommand.h"
+#include "UIManager.h"
+
 #include "MathTypes.h"          // Vector2, dll
 
 #include "SystemConfig.h"
@@ -47,7 +49,11 @@ private:
 	KeyboardInputDevice* keyboard;
 	MouseInputDevice* mouse;
 	RenderManager* renderManager;
+	UIManager* uiManager;
 
 	void debugInput();   // Fungsi bantu debugging input
     void debugRender();  // Fungsi bantu submit dan render GUI test
+	// void debugUI(); //Fungsi bantu test uiManager
+
+	UIElement* uiElementTest; //object bantu test uiManager
 };

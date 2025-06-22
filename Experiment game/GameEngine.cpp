@@ -42,6 +42,13 @@ void GameEngine::init() {
         return;
     }
 
+	//UI
+	uiManager = new UIManager();
+    //ini hanya untuk uji coba
+	uiElementTest = new UIElement();
+	uiManager->AddRoot(uiElementTest);
+	std::cout << "add UI element root "<< std::endl;
+
     std::cout << "Engine initialized.\n";
 }
 
@@ -54,6 +61,10 @@ void GameEngine::update() {
         inputManager->updateAllDevices();
         debugInput();
     }
+
+	if(uiManager){
+		uiManager->Update();
+	}
 
     if (renderer) {
         debugRender();
@@ -82,6 +93,16 @@ void GameEngine::shutdown() {
         delete audio;
         audio = NULL;
     }
+
+	if(renderManager){
+		delete renderManager;
+		renderManager = NULL;
+	}
+
+	if(uiManager){
+		delete uiManager;
+		uiManager = NULL;
+	}
 
     std::cout << "Engine shutdown complete.\n";
 }
@@ -121,45 +142,61 @@ void GameEngine::debugInput() {
     }
 }
 
-void GameEngine::debugRender() {
-    float screenW = sysConfig.video.resolution.x;
-    float screenH = sysConfig.video.resolution.y;
+// void GameEngine::debugRender() {
+//     float screenW = sysConfig.video.resolution.x;
+//     float screenH = sysConfig.video.resolution.y;
 
-    std::string text = "Halo Dunia Penuh Derita";
-    float fontSize = 18.0f;
+//     std::string text = "Halo Dunia Penuh Derita";
+//     float fontSize = 18.0f;
 
-    // Ukuran teks
-    float charWidth = fontSize * 0.52f; //todo: tiap string karakternya panjangnya gak selalu sama, butuh database lebar per karakter.
-    float charHeight = fontSize;
-    float textW = charWidth * text.length();
-    float textH = charHeight;
+//     // Ukuran teks
+//     float charWidth = fontSize * 0.52f; //todo: tiap string karakternya panjangnya gak selalu sama, butuh database lebar per karakter.
+//     float charHeight = fontSize;
+//     float textW = charWidth * text.length();
+//     float textH = charHeight;
 
-    // Padding per sisi
-    float paddingLeft   = 4.0f;
-    float paddingRight  = 8.0f;
-    float paddingTop    = 2.0f;
-    float paddingBottom = 2.0f;
+//     // Padding per sisi
+//     float paddingLeft   = 4.0f;
+//     float paddingRight  = 8.0f;
+//     float paddingTop    = 2.0f;
+//     float paddingBottom = 2.0f;
 
-    // Ukuran rect
-    float rectW = textW + paddingLeft + paddingRight;
-    float rectH = textH + paddingTop + paddingBottom;
+//     // Ukuran rect
+//     float rectW = textW + paddingLeft + paddingRight;
+//     float rectH = textH + paddingTop + paddingBottom;
 
-    // Posisi rect center
-    float rectX = (screenW - rectW) * 0.5f;
-    float rectY = (screenH - rectH) * 0.5f;
+//     // Posisi rect center
+//     float rectX = (screenW - rectW) * 0.5f;
+//     float rectY = (screenH - rectH) * 0.5f;
 
-    // Vertical baseline offset
-    float ascent = fontSize * 0.8f;
-    float descent = fontSize * 0.2f;
-    float baselineY = rectY + rectH * 0.5f + (ascent - (ascent + descent) * 0.5f);
+//     // Vertical baseline offset
+//     float ascent = fontSize * 0.8f;
+//     float descent = fontSize * 0.2f;
+//     float baselineY = rectY + rectH * 0.5f + (ascent - (ascent + descent) * 0.5f);
 
-    // Posisi teks (dari rect top-left)
-    float textX = rectX + paddingLeft;
+//     // Posisi teks (dari rect top-left)
+//     float textX = rectX + paddingLeft;
 
-    // Draw
+//     // Draw
+//     renderer->beginFrame();
+//     renderManager->DrawRect(Vector2(rectX, rectY), Vector2(rectW, rectH), Color::Red());
+//     renderManager->DrawText(text, Vector2(textX, baselineY), fontSize, Color::White());
+//     renderManager->flush();
+//     renderer->endFrame();
+// }
+
+void GameEngine::debugRender(){
+    // Render
     renderer->beginFrame();
-    renderManager->DrawRect(Vector2(rectX, rectY), Vector2(rectW, rectH), Color::Red());
-    renderManager->DrawText(text, Vector2(textX, baselineY), fontSize, Color::White());
-    renderManager->flush();
+
+    // Dunia 3D
+    //renderManager.RenderWorld(worldManager.GetDrawCommandList());
+
+    // Overlay (opsional kalau mau dipisah)
+    //renderManager.RenderOverlay(overlayManager.GetDrawCommandList());
+
+    // UI 2D
+    renderManager->RenderUI(uiManager->DrawUI());
+
     renderer->endFrame();
 }

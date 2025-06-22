@@ -49,12 +49,6 @@
     <Filter Include="Source Files\input\mouse">
       <UniqueIdentifier>{acf75c44-db85-4048-b39e-4a21bd8f2c18}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GUI">
-      <UniqueIdentifier>{516e41b5-c296-4403-9181-41988cd3d8e9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GUI">
-      <UniqueIdentifier>{73b3dcf0-3ece-4025-897d-7f9998bc5760}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\input\keyboard\windows">
       <UniqueIdentifier>{1a0af717-b280-46a6-8c89-1df9a8b21e5d}</UniqueIdentifier>
     </Filter>
@@ -70,11 +64,11 @@
     <Filter Include="Header Files\util">
       <UniqueIdentifier>{e964ed42-f3a6-412a-9f06-01dc9729518a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GUI\core">
-      <UniqueIdentifier>{35bf0a3f-ce53-4ce4-aff8-0cc48815e6ef}</UniqueIdentifier>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{73b3dcf0-3ece-4025-897d-7f9998bc5760}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GUI\core">
-      <UniqueIdentifier>{657896ca-23d8-4ac0-a94b-f9bafaf03427}</UniqueIdentifier>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{516e41b5-c296-4403-9181-41988cd3d8e9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -123,14 +117,11 @@
     <ClCompile Include="RenderManager.cpp">
       <Filter>Source Files\render</Filter>
     </ClCompile>
-    <ClCompile Include="UIPointer.cpp">
-      <Filter>Source Files\GUI\core</Filter>
+    <ClCompile Include="UIElement.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
-    <ClCompile Include="UIPointerManager.cpp">
-      <Filter>Source Files\GUI\core</Filter>
-    </ClCompile>
-    <ClCompile Include="UICoreSystem.cpp">
-      <Filter>Source Files\GUI\core</Filter>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,9 +176,6 @@
     <ClInclude Include="WindowsMouseBackend.h">
       <Filter>Header Files\input\mouse</Filter>
     </ClInclude>
-    <ClInclude Include="IGUI.h">
-      <Filter>Header Files\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="KeyboardState.h">
       <Filter>Header Files\input\keyboard</Filter>
     </ClInclude>
@@ -212,12 +200,6 @@
     <ClInclude Include="MouseButton.h">
       <Filter>Header Files\input\mouse</Filter>
     </ClInclude>
-    <ClInclude Include="IRendererGUI.h">
-      <Filter>Header Files\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="IWidget.h">
-      <Filter>Header Files\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="RenderManager.h">
       <Filter>Header Files\render</Filter>
     </ClInclude>
@@ -227,17 +209,14 @@
     <ClInclude Include="MathTypes.h">
       <Filter>Header Files\util</Filter>
     </ClInclude>
-    <ClInclude Include="UIPointer.h">
-      <Filter>Header Files\GUI\core</Filter>
-    </ClInclude>
-    <ClInclude Include="UIPointerManager.h">
-      <Filter>Header Files\GUI\core</Filter>
-    </ClInclude>
-    <ClInclude Include="UICoreSystem.h">
-      <Filter>Header Files\GUI\core</Filter>
-    </ClInclude>
     <ClInclude Include="SystemConfig.h">
       <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="UIElement.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

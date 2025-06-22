@@ -101,9 +101,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="UICoreSystem.cpp" />
-    <ClCompile Include="UIPointer.cpp" />
-    <ClCompile Include="UIPointerManager.cpp" />
+    <ClCompile Include="UIElement.cpp" />
+    <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="WindowManagerWin32.cpp" />
     <ClCompile Include="WindowsKeyboardBackend.cpp" />
     <ClCompile Include="WindowsKeyMapper.cpp" />
@@ -116,14 +115,11 @@
     <ClInclude Include="DrawCommand.h" />
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="IAudio.h" />
-    <ClInclude Include="IGUI.h" />
     <ClInclude Include="IInputDevice.h" />
     <ClInclude Include="IKeyboardBackend.h" />
     <ClInclude Include="IMouseBackend.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="IRenderer.h" />
-    <ClInclude Include="IRendererGUI.h" />
-    <ClInclude Include="IWidget.h" />
     <ClInclude Include="IWindow.h" />
     <ClInclude Include="KeyboardInputDevice.h" />
     <ClInclude Include="KeyboardState.h" />
@@ -138,9 +134,8 @@
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="UICoreSystem.h" />
-    <ClInclude Include="UIPointer.h" />
-    <ClInclude Include="UIPointerManager.h" />
+    <ClInclude Include="UIElement.h" />
+    <ClInclude Include="UIManager.h" />
     <ClInclude Include="WindowManagerWin32.h" />
     <ClInclude Include="WindowsKeyboardBackend.h" />
     <ClInclude Include="WindowsKeyMapper.h" />

@@ -39,45 +39,6 @@ Engine ini dirancang dengan filosofi **non-opiniatif secara logika**, yaitu engi
 
 ---
 
-## 🔁 Contoh Alur Per Frame
-
-```cpp
-inputManager->PollDevices();
-inputManager->UpdateBufferAndState();
-
-if (gameLogic->HasActiveUI()) {
-    uiSystem->ScanUI(gameLogic->GetUIInstances());
-    uiSystem->HandleInput(inputManager->GetInputBuffer());
-}
-
-gameLogic->Update(inputManager->GetInputState(), inputManager->GetInputBuffer());
-
-renderManager->Render(gameLogic->GetVisualInstances());
-```
-
----
-
-## 🧩 Arsitektur UI (Progress Terkini)
-
-Sedang membangun sistem UI modular berbasis event dan pointer abstraction. Struktur arsitekturnya dirancang sebagai berikut:
-
-    UICoreSystem
-    ├── UIPointerManager (mengelola gesture, klik, hold, swipe)
-    ├── UIEventDispatcher (mendistribusi event: onClick, onHover, onDrag)
-    ├── UIFocusManager (melacak elemen yang sedang difokuskan atau diseret)
-    ├── UIDrawSystem (menggambar rect, teks, dan widget modular)
-    └── UILayoutEngine? (opsional: auto layout seperti flex/grid)
-
-### 🤔 Pertimbangan Desain
-
-- Interface `IInputDevice` saat ini belum cukup generik untuk mewakili semua jenis input (mouse, touch, gamepad).
-- Hal ini membuat beberapa bagian, terutama `UIPointerManager`, terlalu sering bergantung langsung pada class konkret (`MouseInputDevice`, dll).
-- Masih dalam evaluasi apakah `IInputDevice` sebaiknya:
-  - Dipertahankan hanya sebagai interface untuk update generik (`update()`, `getType()`), atau
-  - Dihapus dan diganti dengan sistem manajemen input yang lebih kontekstual.
-
----
-
 ## 🛤️ Roadmap Pengembangan Selanjutnya
 
 ### 🔳 GUI System *(disesuaikan)*

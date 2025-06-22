@@ -147,8 +147,8 @@ void OpenGLRenderer::Begin2D() {
     glMatrixMode(GL_PROJECTION);
     glPushMatrix();
     glLoadIdentity();
-	int horizontal = static_cast<float>(resolution->x);
-	int vertical = static_cast<float>(resolution->y);
+	int horizontal = static_cast<int>(resolution->x);
+	int vertical = static_cast<int>(resolution->y);
     glOrtho(0, horizontal, vertical, 0, -1, 1); // Origin kiri atas
 
     glMatrixMode(GL_MODELVIEW);
