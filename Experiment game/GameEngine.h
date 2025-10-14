@@ -8,11 +8,6 @@
 
 #include "KeyCode.h"
 
-#include "KeyboardInputDevice.h"
-#include "MouseInputDevice.h"
-
-#include "WindowsKeyboardBackend.h"
-#include "WindowsMouseBackend.h"
 #include "OpenGLRenderer.h"
 //#include "WindowManagerWin32.h"
 #include "WindowsPlatformLayer.h"
@@ -46,12 +41,9 @@ public:
 private:
     InputManager* inputManager;
     IRenderer* renderer;
-	//IWindow* window;
 	std::shared_ptr<IPlatformLayer> platform;
 	std::shared_ptr<IRenderSurface> surface;
 	IAudio* audio;
-	/*KeyboardInputDevice* keyboard;
-	MouseInputDevice* mouse;*/
 	RenderManager* renderManager;
 	UIManager* uiManager;
 

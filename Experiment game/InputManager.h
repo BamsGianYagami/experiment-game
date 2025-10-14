@@ -1,8 +1,6 @@
 #pragma once
 #include "stdafx.h"
 #include "IInputDevice.h"
-#include "KeyboardInputDevice.h"
-#include "MouseInputDevice.h"
 #include <vector>
 #include "InputEvent.h"
 
