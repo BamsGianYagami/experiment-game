@@ -1,7 +1,7 @@
 #pragma once
 #include "IRenderer.h"
 #include <windows.h>  // untuk HWND
-#include "IWindow.h"  // untuk IWindow
+#include "IRenderSurface.h"
 
 #include "DrawCommand.h"
 #include "MathTypes.h"
@@ -11,7 +11,7 @@ public:
     OpenGLRenderer();
     ~OpenGLRenderer();
 
-    bool init(IWindow* windowHandle) override;
+    bool init(IRenderSurface* surface) override;
     void beginFrame() override;
 	void endFrame() override;
     void shutdown() override;

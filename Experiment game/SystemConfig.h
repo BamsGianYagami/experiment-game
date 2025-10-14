@@ -9,7 +9,7 @@ struct SystemConfig {
         bool fullscreen;
 
         Video() 
-          : resolution(1920, 1080),
+          : resolution(800, 600),
             pixelDensity(1.0f),
             fullscreen(false) {}
     } video;

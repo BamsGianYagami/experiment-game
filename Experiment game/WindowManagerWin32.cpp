@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "WindowManagerWin32.h"
 
-WindowManagerWin32::WindowManagerWin32()
-    : hWnd(NULL), running(true) {}
+WindowManagerWin32::WindowManagerWin32() : hWnd(NULL), running(true) {
+	keyboardBackend = nullptr;
+}
 
 WindowManagerWin32::~WindowManagerWin32() {}
 
@@ -28,7 +29,8 @@ bool WindowManagerWin32::create(const Vector2& resolution, const wchar_t* title)
         title,
         WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, CW_USEDEFAULT, width, height,
-        NULL, NULL, hInstance, NULL
+        NULL, NULL, hInstance,
+		this  // <- pass this to WM_NCCREATE
     );
 
     if (!hWnd) return false;
@@ -62,6 +64,30 @@ NativeWindowHandle WindowManagerWin32::getNativeHandle() const {
 
 // Static WindowProc callback
 LRESULT CALLBACK WindowManagerWin32::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
+	// Ambil this pointer
+    WindowManagerWin32* self = nullptr;
+
+    if (uMsg == WM_NCCREATE) {
+        CREATESTRUCT* cs = reinterpret_cast<CREATESTRUCT*>(lParam);
+        self = static_cast<WindowManagerWin32*>(cs->lpCreateParams);
+        SetWindowLongPtr(hwnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(self));
+    } else {
+        self = reinterpret_cast<WindowManagerWin32*>(GetWindowLongPtr(hwnd, GWLP_USERDATA));
+    }
+
+    // Jika sudah punya self dan keyboardBackend
+    if (self && self->keyboardBackend) {
+        switch (uMsg) {
+        case WM_KEYDOWN:
+            self->keyboardBackend->onKeyDown(wParam);
+            return 0;
+        case WM_KEYUP:
+            self->keyboardBackend->onKeyUp(wParam);
+            return 0;
+        }
+    }
+
+	//event default
     switch (uMsg) {
         case WM_DESTROY:
             PostQuitMessage(0);

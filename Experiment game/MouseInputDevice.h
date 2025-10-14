@@ -6,7 +6,7 @@
 #include "MouseDeltaState.h"
 #include "MouseButton.h"
 
-/**
+**
  * @brief Kelas MouseInputDevice bertanggung jawab menerima input dari backend dan menyimpan state mouse.
  */
 class MouseInputDevice : public IInputDevice {

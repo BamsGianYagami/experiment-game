@@ -4,6 +4,7 @@
 #include "KeyboardInputDevice.h"
 #include "MouseInputDevice.h"
 #include <vector>
+#include "InputEvent.h"
 
 /**
  * @brief InputManager bertugas sebagai pengelola perangkat input.
@@ -24,6 +25,8 @@ public:
 
     void registerDevice(IInputDevice* device);
     void updateAllDevices();
+
+	void testCallBackInput(const InputEvent& e);
 
 	template<typename T> T* getDevice();
 

@@ -20,4 +20,11 @@ public:
      * @param state Objek KeyboardState yang akan diperbarui.
      */
     void update(KeyboardState& state) override;
+	
+	// Called from the window message handler
+    void onKeyDown(WPARAM wParam);
+    void onKeyUp(WPARAM wParam);
+
+private:
+	bool keyStates[256];
 };

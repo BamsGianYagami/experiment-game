@@ -2,7 +2,13 @@
 #include "GameEngine.h"
 
 GameEngine::GameEngine()
-    : inputManager(NULL), renderer(NULL), window(NULL), audio(NULL) {}
+    :
+	inputManager(NULL),
+	renderer(NULL), 
+	//window(NULL),
+	platform(NULL),
+	surface(NULL),
+	audio(NULL) {}
 
 GameEngine::~GameEngine() {
     shutdown();
@@ -13,21 +19,39 @@ void GameEngine::init() {
 
     // Input
     inputManager = new InputManager();
-    keyboard = new KeyboardInputDevice(new WindowsKeyboardBackend());
-    mouse = new MouseInputDevice(new WindowsMouseBackend());
-    inputManager->registerDevice(keyboard);
-    inputManager->registerDevice(mouse);
+    //keyboard = new KeyboardInputDevice(new WindowsKeyboardBackend());
+    //mouse = new MouseInputDevice(new WindowsMouseBackend());
+    //inputManager->registerDevice(keyboard);
+    //inputManager->registerDevice(mouse);
 
     // Window
+	/*
     window = new WindowManagerWin32();
 	if (!window->create(sysConfig.video.resolution, L"My Game Window")) {
         std::cerr << "Failed to create window.\n";
         return;
-    }
+    }*/
+
+	//platform - gantinya window
+	//WindowsPlatformLayer* windows = new WindowsPlatformLayer();
+	std::shared_ptr<WindowsPlatformLayer> windows = std::make_shared<WindowsPlatformLayer>();
+	
+	//pointing platform dan surface ke windows karena implementasi dari keduanya
+	platform = windows;
+	surface = windows;
+
+	if (!surface->createSurface(sysConfig.video.resolution, L"My Game Window")) {
+		std::cerr << "Failed to create surface.\n";
+		return;
+	}
+
+	//cara memasang callback
+	windows->setInputCallback(std::bind(&InputManager::testCallBackInput, inputManager, std::placeholders::_1));
+
 
     // Renderer
     renderer = new OpenGLRenderer();
-    if (!renderer->init(window)) {
+    if (!renderer->init(surface.get())) {
         std::cerr << "Failed to initialize OpenGL\n";
         return;
     }
@@ -53,13 +77,17 @@ void GameEngine::init() {
 }
 
 void GameEngine::update() {
-    if (window) {
-        window->processEvents();
+    //if (window) {
+    //    window->processEvents();
+    //}
+
+	if (platform) {
+        platform->processPlatformEvents();
     }
 
     if (inputManager) {
-        inputManager->updateAllDevices();
-        debugInput();
+        //inputManager->updateAllDevices();
+        //debugInput();
     }
 
 	if(uiManager){
@@ -84,10 +112,14 @@ void GameEngine::shutdown() {
         renderer = NULL;
     }
 
-    if (window) {
-        delete window;
-        window = NULL;
-    }
+    //if (window) {
+    //    delete window;
+    //    window = NULL;
+    //}
+
+	//platform dan surface sekarang jadi shared pointer
+	platform.reset();
+	surface.reset();
 
     if (audio) {
         delete audio;
@@ -111,36 +143,36 @@ void GameEngine::shutdown() {
 // 🔍 Fungsi Debug
 // ===================
 
-void GameEngine::debugInput() {
-    // Keyboard
-    if (keyboard->isKeyDown(Key_ENTER)) {
-        std::cout << "Enter baru ditekan!\n";
-    }
-    if (keyboard->isKeyUp(Key_ENTER)) {
-        std::cout << "Enter baru dilepas!\n";
-    }
-    if (keyboard->isKeyHeld(Key_ENTER)) {
-        std::cout << "Enter sedang ditahan.\n";
-    }
-
-    // Mouse
-    const MouseState& currentMouse = mouse->getState();
-    const MouseDeltaState& delta = mouse->getDelta();
-
-    if (mouse->isMouseDown(GE::MouseButton_Mouse5)) {
-        std::cout << "mouse5Button baru ditekan\n";
-    }
-    if (mouse->isMouseUp(GE::MouseButton_Mouse5)) {
-        std::cout << "mouse5Button baru dilepas\n";
-    }
-    if (mouse->isMouseHeld(GE::MouseButton_Mouse5)) {
-        std::cout << "mouse5Button sedang ditahan\n";
-    }
-
-    if (delta.deltaX != 0 || delta.deltaY != 0) {
-        std::cout << "Mouse moved: DeltaX = " << delta.deltaX << ", DeltaY = " << delta.deltaY << "\n";
-    }
-}
+//void GameEngine::debugInput() {
+//    // Keyboard
+//    if (keyboard->isKeyDown(Key_ENTER)) {
+//        std::cout << "Enter baru ditekan!\n";
+//    }
+//    if (keyboard->isKeyUp(Key_ENTER)) {
+//        std::cout << "Enter baru dilepas!\n";
+//    }
+//    if (keyboard->isKeyHeld(Key_ENTER)) {
+//        std::cout << "Enter sedang ditahan.\n";
+//    }
+//
+//    // Mouse
+//    const MouseState& currentMouse = mouse->getState();
+//    const MouseDeltaState& delta = mouse->getDelta();
+//
+//    if (mouse->isMouseDown(GE::MouseButton_Mouse5)) {
+//        std::cout << "mouse5Button baru ditekan\n";
+//    }
+//    if (mouse->isMouseUp(GE::MouseButton_Mouse5)) {
+//        std::cout << "mouse5Button baru dilepas\n";
+//    }
+//    if (mouse->isMouseHeld(GE::MouseButton_Mouse5)) {
+//        std::cout << "mouse5Button sedang ditahan\n";
+//    }
+//
+//    if (delta.deltaX != 0 || delta.deltaY != 0) {
+//        std::cout << "Mouse moved: DeltaX = " << delta.deltaX << ", DeltaY = " << delta.deltaY << "\n";
+//    }
+//}
 
 // void GameEngine::debugRender() {
 //     float screenW = sysConfig.video.resolution.x;

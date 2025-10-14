@@ -3,14 +3,14 @@
   <Class Name="GameEngine" Collapsed="true">
     <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAIAAACAAABAAAAAGAhAAAAgAIoEAAAAAAEgAA=</HashCode>
+      <HashCode>AAAAAAAAAAACAAABCAQAAiAhAAAAgCIgEAAAAAgEgAA=</HashCode>
       <FileName>GameEngine.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IRenderer" Collapsed="true">
     <Position X="3.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAgQAAAAQBgAAAAAAAAGQAAAIAAAAAAAAAABA=</HashCode>
+      <HashCode>AAAAAgAAgQAAAAQBgAAAACAAAGQAAAIAAAAAAAAAABA=</HashCode>
       <FileName>IRenderer.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,14 +24,14 @@
   <Class Name="IWindow" Collapsed="true">
     <Position X="0.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAQAAAAAAAABAAGAAAAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAACAAEQAAAAAAAABAAGAAAAA=</HashCode>
       <FileName>IWindow.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WindowManagerWin32" Collapsed="true">
     <Position X="0.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAIIAAAAAAAAAAAIEAAAQgAAAAAAABAACAAAAA=</HashCode>
+      <HashCode>AAAAAAAIIAAAAAAAAAAAIUAAAQkAAAAAAABAACAAAAA=</HashCode>
       <FileName>WindowManagerWin32.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -59,7 +59,7 @@
   <Class Name="InputManager" Collapsed="true">
     <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAKAAAAAAAAAAAAAEAAAIgAQEEAAAAAIAAAAAA=</HashCode>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAACAgAAEEAAAAAIAAAAEA=</HashCode>
       <FileName>InputManager.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -80,7 +80,7 @@
   <Class Name="WindowsKeyboardBackend" Collapsed="true">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAQAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>BAAAAAAAAgAQAAAAgAAAAgAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>WindowsKeyboardBackend.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -157,7 +157,7 @@
   <Class Name="GE::RenderManager" Collapsed="true">
     <Position X="9.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AGAAAABAAAAQAAAAQgAAAAAAQAAACAAAAEgEABAAgIA=</HashCode>
+      <HashCode>BGAAAABAAAAAAAAAQgAAAAAAAAAAAAQAAAAEABAAgAA=</HashCode>
       <FileName>RenderManager.h</FileName>
     </TypeIdentifier>
   </Class>

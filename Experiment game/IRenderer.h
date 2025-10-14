@@ -1,7 +1,7 @@
 #pragma once
 
 #include "DrawCommand.h"
-#include "IWindow.h"
+#include "IRenderSurface.h"
 #include "SystemConfig.h"
 
 using namespace GE;
@@ -17,7 +17,7 @@ public:
      * @brief Inisialisasi renderer dengan window target.
      * @param window Pointer ke IWindow (sudah memiliki native handle).
      */
-    virtual bool init(IWindow* window) = 0;
+    virtual bool init(IRenderSurface* surface) = 0;
 
     /**
      * @brief Memulai pipeline render (biasanya hanya glClear dan glClearColor.

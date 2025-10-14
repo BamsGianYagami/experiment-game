@@ -2,7 +2,8 @@
 
 #include "InputManager.h"
 #include "IRenderer.h"
-#include "IWindow.h"
+//#include "IWindow.h"
+#include "IPlatformLayer.h"
 #include "IAudio.h"
 
 #include "KeyCode.h"
@@ -13,7 +14,8 @@
 #include "WindowsKeyboardBackend.h"
 #include "WindowsMouseBackend.h"
 #include "OpenGLRenderer.h"
-#include "WindowManagerWin32.h"
+//#include "WindowManagerWin32.h"
+#include "WindowsPlatformLayer.h"
 #include "OpenALAudio.h"
 
 #include "RenderManager.h"      // agar bisa SubmitCommand
@@ -44,10 +46,12 @@ public:
 private:
     InputManager* inputManager;
     IRenderer* renderer;
-	IWindow* window;
+	//IWindow* window;
+	std::shared_ptr<IPlatformLayer> platform;
+	std::shared_ptr<IRenderSurface> surface;
 	IAudio* audio;
-	KeyboardInputDevice* keyboard;
-	MouseInputDevice* mouse;
+	/*KeyboardInputDevice* keyboard;
+	MouseInputDevice* mouse;*/
 	RenderManager* renderManager;
 	UIManager* uiManager;
 

@@ -14,9 +14,9 @@ OpenGLRenderer::~OpenGLRenderer() {
 	std::cout << "OpenGLRenderer destroyed\n";
 }
 
-bool OpenGLRenderer::init(IWindow* window) {
-    NativeWindowHandle handle = window->getNativeHandle();
-	this->resolution = window->getWindowResolution();
+bool OpenGLRenderer::init(IRenderSurface* surface) {
+    NativeWindowHandle handle = surface->getNativeHandle();
+	this->resolution = surface->getResolution();
 
     if (handle.type != NativeWindowHandle::Win32) {
         std::cerr << "Unsupported platform for OpenGLRenderer.\n";

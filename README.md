@@ -94,4 +94,34 @@ Engine ini dirancang dengan filosofi **non-opiniatif secara logika**, yaitu engi
 
 ---
 
+## ⚠️ Catatan: Files yang Di-deprecate setelah beralih ke event-based HWND input
+
+Setelah perubahan input dari async state ke event listener (HWND), file/kelas berikut tidak lagi direferensi dari GameEngine.cpp dan dapat dihapus atau dipindahkan kalau memang tidak dipakai modul lain:
+
+- Experiment game/IWindow.h
+- Experiment game/WindowManagerWin32.h
+- Experiment game/WindowManagerWin32.cpp
+- Experiment game/KeyboardInputDevice.h
+- Experiment game/KeyboardInputDevice.cpp
+- Experiment game/MouseInputDevice.h
+- Experiment game/MouseInputDevice.cpp
+- Experiment game/WindowsKeyboardBackend.h
+- Experiment game/WindowsKeyboardBackend.cpp
+- Experiment game/WindowsMouseBackend.h
+- Experiment game/WindowsMouseBackend.cpp
+- Experiment game/WindowsKeyMapper.h
+- Experiment game/WindowsKeyMapper.cpp
+
+Di GameEngine.h ada includes yang sekarang bisa dihapus (karena tidak lagi digunakan oleh GameEngine.cpp):
+- KeyboardInputDevice.h
+- MouseInputDevice.h
+- WindowsKeyboardBackend.h
+- WindowsMouseBackend.h
+- WindowManagerWin32.h
+- WindowsKeyMapper.h
+
+Tips singkat: sebelum menghapus file dari repo, buat branch terpisah dan commit perubahan; itu memudahkan revert jika build/tes gagal.
+
+---
+
 > 📁 Dokumentasi teknis, diagram arsitektur, dan update roadmap tersedia di folder `docs/` *(akan ditambahkan di masa depan)*

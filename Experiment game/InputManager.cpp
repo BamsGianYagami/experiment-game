@@ -35,3 +35,15 @@ void InputManager::updateAllDevices() {
         device->update();
     }
 }
+
+void InputManager::testCallBackInput(const InputEvent& e) {
+    std::cout << "[CALLBACK] testCallBackInput" << std::endl;
+    std::cout << "Address of InputEvent: " << &e << std::endl;
+
+    std::cout << "type: " << e.type
+              << ", keyOrButton: " << e.keyOrButton
+              << ", mouseButton: " << e.mouseButton
+              << ", x: " << e.x
+              << ", y: " << e.y
+              << ", scrollDelta: " << e.scrollDelta << std::endl;
+}
