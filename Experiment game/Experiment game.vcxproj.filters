@@ -90,29 +90,11 @@
     <ClCompile Include="GameEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WindowManagerWin32.cpp">
-      <Filter>Source Files\window manager</Filter>
-    </ClCompile>
     <ClCompile Include="OpenALAudio.cpp">
       <Filter>Source Files\audio</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>Source Files\input</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyboardInputDevice.cpp">
-      <Filter>Source Files\input\keyboard</Filter>
-    </ClCompile>
-    <ClCompile Include="MouseInputDevice.cpp">
-      <Filter>Source Files\input\mouse</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowsMouseBackend.cpp">
-      <Filter>Source Files\input\mouse</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowsKeyboardBackend.cpp">
-      <Filter>Source Files\input\keyboard\windows</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowsKeyMapper.cpp">
-      <Filter>Source Files\input\keyboard\windows</Filter>
     </ClCompile>
     <ClCompile Include="AndroidKeyMapper.cpp">
       <Filter>Source Files\input\keyboard\android</Filter>
@@ -149,12 +131,6 @@
     <ClInclude Include="OpenGLRenderer.h">
       <Filter>Header Files\render</Filter>
     </ClInclude>
-    <ClInclude Include="IWindow.h">
-      <Filter>Header Files\window manager</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowManagerWin32.h">
-      <Filter>Header Files\window manager</Filter>
-    </ClInclude>
     <ClInclude Include="IAudio.h">
       <Filter>Header Files\audio</Filter>
     </ClInclude>
@@ -167,14 +143,8 @@
     <ClInclude Include="IInputDevice.h">
       <Filter>Header Files\input</Filter>
     </ClInclude>
-    <ClInclude Include="KeyboardInputDevice.h">
-      <Filter>Header Files\input\keyboard</Filter>
-    </ClInclude>
     <ClInclude Include="IKeyboardBackend.h">
       <Filter>Header Files\input\keyboard</Filter>
-    </ClInclude>
-    <ClInclude Include="MouseInputDevice.h">
-      <Filter>Header Files\input\mouse</Filter>
     </ClInclude>
     <ClInclude Include="IMouseBackend.h">
       <Filter>Header Files\input\mouse</Filter>
@@ -182,20 +152,11 @@
     <ClInclude Include="MouseState.h">
       <Filter>Header Files\input\mouse</Filter>
     </ClInclude>
-    <ClInclude Include="WindowsMouseBackend.h">
-      <Filter>Header Files\input\mouse</Filter>
-    </ClInclude>
     <ClInclude Include="KeyboardState.h">
       <Filter>Header Files\input\keyboard</Filter>
     </ClInclude>
     <ClInclude Include="KeyCode.h">
       <Filter>Header Files\input\keyboard</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowsKeyboardBackend.h">
-      <Filter>Header Files\input\keyboard\windows</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowsKeyMapper.h">
-      <Filter>Header Files\input\keyboard\windows</Filter>
     </ClInclude>
     <ClInclude Include="AndroidKeyMapper.h">
       <Filter>Header Files\input\keyboard\android</Filter>

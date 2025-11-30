@@ -88,11 +88,9 @@
     <ClCompile Include="InputManager.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="KeyboardInputDevice.cpp" />
     <ClCompile Include="main.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="MouseInputDevice.cpp" />
     <ClCompile Include="OpenALAudio.cpp" />
     <ClCompile Include="OpenGLRenderer.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
@@ -104,10 +102,6 @@
     </ClCompile>
     <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="UIManager.cpp" />
-    <ClCompile Include="WindowManagerWin32.cpp" />
-    <ClCompile Include="WindowsKeyboardBackend.cpp" />
-    <ClCompile Include="WindowsKeyMapper.cpp" />
-    <ClCompile Include="WindowsMouseBackend.cpp" />
     <ClCompile Include="WindowsPlatformLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -125,14 +119,11 @@
     <ClInclude Include="IMouseBackend.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="IRenderer.h" />
-    <ClInclude Include="IWindow.h" />
-    <ClInclude Include="KeyboardInputDevice.h" />
     <ClInclude Include="KeyboardState.h" />
     <ClInclude Include="KeyCode.h" />
     <ClInclude Include="MathTypes.h" />
     <ClInclude Include="MouseButton.h" />
     <ClInclude Include="MouseDeltaState.h" />
-    <ClInclude Include="MouseInputDevice.h" />
     <ClInclude Include="MouseState.h" />
     <ClInclude Include="OpenALAudio.h" />
     <ClInclude Include="OpenGLRenderer.h" />
@@ -141,10 +132,6 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="UIManager.h" />
-    <ClInclude Include="WindowManagerWin32.h" />
-    <ClInclude Include="WindowsKeyboardBackend.h" />
-    <ClInclude Include="WindowsKeyMapper.h" />
-    <ClInclude Include="WindowsMouseBackend.h" />
     <ClInclude Include="WindowsPlatformLayer.h" />
   </ItemGroup>
   <ItemGroup>
