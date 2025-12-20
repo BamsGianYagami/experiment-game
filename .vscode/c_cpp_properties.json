@@ -1,0 +1,27 @@
+// Konfigurasi ini hanya untuk IntelliSense (syntax highlighting, auto-complete, error checking) di VS Code. Untuk build/compile, gunakan tasks.json atau Visual Studio 2010 langsung.
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:/Software/Microsoft Visual Studio 10.0/VC/include",
+                "C:/Program Files (x86)/Microsoft SDKs/Windows/v7.0A/include",
+                "C:/Program Files (x86)/OpenAL 1.1 SDK/include"
+            ],
+            "defines": [
+                "WIN32",
+                "_DEBUG",
+                "_CONSOLE",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            // "windowsSdkVersion": "7.0",  // Dihapus karena menyebabkan warning squiggly kuning di VS Code; path include SDK sudah ditentukan manual
+            "compilerPath": "D:/Software/Microsoft Visual Studio 10.0/VC/bin/cl.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "msvc-x86"
+        }
+    ],
+    "version": 4
+}

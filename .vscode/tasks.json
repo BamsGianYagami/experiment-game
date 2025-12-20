@@ -1,0 +1,34 @@
+// Konfigurasi tasks untuk build/compile proyek di VS Code. Gunakan Ctrl+Shift+P > "Tasks: Run Task" untuk menjalankan.
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build Debug Win32",
+			"type": "shell",
+			"command": "C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe",
+			"args": [
+				"Experiment game.sln",
+				"/p:Configuration=Debug",
+				"/p:Platform=Win32",
+				"/p:VisualStudioVersion=10.0"
+			],
+			"isBackground": false,
+			// "problemMatcher": ["$msvc"],  // Built-in problemMatcher untuk Microsoft Visual C++ compiler. Menampilkan errors/warnings build di panel Problems VS Code untuk navigasi cepat. Tanpa ini, errors tetap muncul di terminal, dan IntelliSense sudah cukup untuk deteksi real-time di editor.
+			"group": "build"
+		},
+		{
+			"label": "Build Release Win32",
+			"type": "shell",
+			"command": "C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe",
+			"args": [
+				"Experiment game.sln",
+				"/p:Configuration=Release",
+				"/p:Platform=Win32",
+				"/p:VisualStudioVersion=10.0"
+			],
+			"isBackground": false,
+			// "problemMatcher": ["$msvc"],  // Built-in problemMatcher untuk Microsoft Visual C++ compiler. Menampilkan errors/warnings build di panel Problems VS Code untuk navigasi cepat. Tanpa ini, errors tetap muncul di terminal, dan IntelliSense sudah cukup untuk deteksi real-time di editor.
+			"group": "build"
+		}
+	]
+}

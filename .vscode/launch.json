@@ -1,0 +1,17 @@
+{
+    // Konfigurasi launch untuk debugging aplikasi di VS Code. Gunakan F5 atau Run > Start Debugging.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Win32",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Debug/Experiment game.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true
+        }
+    ]
+}
