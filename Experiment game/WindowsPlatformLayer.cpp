@@ -19,7 +19,8 @@ bool WindowsPlatformLayer::createSurface(const Vector2& resolution, const wchar_
     wc.lpfnWndProc = WindowProc;
     wc.hInstance = hInstance;
     wc.lpszClassName = className;
-    wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+    wc.hCursor = LoadCursor(hInstance, IDC_ARROW);
+	wc.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(101));
     RegisterClass(&wc);
 
     hwnd = CreateWindowEx(
@@ -29,8 +30,12 @@ bool WindowsPlatformLayer::createSurface(const Vector2& resolution, const wchar_
         NULL, NULL, hInstance, this // pass `this` to WM_NCCREATE
     );
 
-    if (!hwnd) return false;
-    return true;
+	if (!hwnd) {
+		std::cout << "Failed to create Window Handle (HWND)!";
+		return false;
+	}
+
+	return true;
 }
 
 void WindowsPlatformLayer::processPlatformEvents() {
