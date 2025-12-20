@@ -19,12 +19,6 @@
     <Filter Include="Source Files\render">
       <UniqueIdentifier>{12b6de95-7011-4560-853c-7a87bfbdf5bf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\window manager">
-      <UniqueIdentifier>{6b41040d-d9eb-4c95-b310-7c1353406784}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\window manager">
-      <UniqueIdentifier>{aaaf4e41-c0c4-41ff-af4c-f3db0104a74d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\audio">
       <UniqueIdentifier>{6c6887da-13d9-41de-a0d6-5bfe8fe11f43}</UniqueIdentifier>
     </Filter>
@@ -200,8 +194,19 @@
     <ClInclude Include="InputEvent.h">
       <Filter>Header Files\input</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="icon1.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Experiment game.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

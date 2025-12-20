@@ -12,13 +12,16 @@ Tetapi masih harus riset lagi apakah device lain seperti gamepad masih bisa lewa
 
 ---
 
-### 2. Refactor Platform & Surface
-Karena `Surface` dan `PlatformLayer` sebenarnya satu kesatuan (window + native handle), maka lakukan:
+### 2. Arsitektur Subsystem: Platform & Surface (Re-Refactor)
 
-- satukan `Surface` ke dalam `PlatformLayer`
-- pindahkan logic `createSurface` / window handle ke `PlatformLayer`
-- renderer mengambil native handle langsung dari platform  
-  `platform->getNativeWindowHandle()`
+Awalnya direncanakan untuk digabung, namun diputuskan untuk tetap **Dipisahkan** antara `IPlatformLayer` dan `IRenderSurface` dengan alasan:
+
+- **Headless Support:** Memungkinkan engine berjalan tanpa window fisik (misalnya untuk dedicated server atau automated testing).
+- **Separation of Concerns:** - `IPlatformLayer` bertanggung jawab atas OS lifecycle, window management, dan input.
+    - `IRenderSurface` bertanggung jawab atas abstraksi swapchain, resolusi, dan native handle yang dibutuhkan Renderer.
+- **Dependency Flow:** Renderer kini hanya bergantung pada `IRenderSurface`. Jika surface tidak diinisialisasi (null), maka renderer akan masuk ke mode headless.
+
+**Catatan Penting:** Pastikan urutan inisialisasi dilakukan dengan benar: `Platform` -> `Surface` (optional) -> `Renderer`. Jangan memanggil draw command jika `Surface` belum di-attach ke `Platform`.
 
 ---
 
