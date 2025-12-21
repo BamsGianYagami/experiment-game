@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "GameEngine.h"
 
+GameEngine *engine;
 
 /**
  * NOTES:
@@ -20,17 +21,17 @@
  */
 int _tmain(int argc, _TCHAR* argv[])
 {
-	GameEngine engine;
+	engine = new GameEngine();
 
-    engine.init();
+    engine->init();
 
     for (int i = 0; i < 50000; ++i) { // simulasi 5 puluh ribu frame
 		//std::cout << "==frame ke " << i+1 << "===" << std::endl;
-        engine.update();
+        engine->update();
 		//std::cout << "=======" << std::endl << std::endl;
     }
 
-    engine.shutdown();
+    delete engine;
 
     return 0;
 }
@@ -87,21 +88,21 @@ int _tmain(int argc, _TCHAR* argv[])
 /*
 int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
-	GameEngine engine;
+  engine = new GameEngine();
 
 	//metode seperti ini yang mengambil hInstance dari entry point sudah tidak diperlukan,
 	//karena bisa langsung dari GetModuleHandle() ketika di hilight memiliki alamat pointer yang identik sama.
 	//engine.init(hInstance);
 
-    engine.init();
+    engine->init();
 
     for (int i = 0; i < 50000; ++i) { // simulasi 5 puluh ribu frame
 		std::cout << "==frame ke " << i+1 << "===" << std::endl;
-        engine.update();
+        engine->update();
 		std::cout << "=======" << std::endl << std::endl;
     }
 
-    engine.shutdown();
+    engine->shutdown();
 
     return 0;
 }
