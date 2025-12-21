@@ -14,7 +14,6 @@
 #include "OpenALAudio.h"
 
 #include "RenderManager.h"      // agar bisa SubmitCommand
-#include "DrawCommand.h"
 #include "UIManager.h"
 
 #include "MathTypes.h"          // Vector2, dll
@@ -28,9 +27,10 @@ public:
 
     void init();
 	/*
-	Sekarang window menggunakan interface IWindow,
+	Sekarang window menggunakan interface IRenderSurface,
 	dan implementasi Windows mengambil HINSTANCE sendiri.
 	Jadi tidak perlu lagi passing HINSTANCE dari entry point.
+	GetModuleHandle() juga sama mengambil alamat dari entry point main windows
 	*/
 	//void init(HINSTANCE hInstance);
     void update();

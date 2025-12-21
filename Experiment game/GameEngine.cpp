@@ -5,7 +5,6 @@ GameEngine::GameEngine()
     :
 	inputManager(NULL),
 	renderer(NULL), 
-	//window(NULL),
 	platform(NULL),
 	surface(NULL),
 	audio(NULL) {}
@@ -57,8 +56,16 @@ void GameEngine::init() {
 	uiManager = new UIManager();
     //ini hanya untuk uji coba
 	uiElementTest = new UIElement();
+    //taruh di tengah layar
+    uiElementTest->position = Vector2(sysConfig.video.resolution.x/2 - uiElementTest->size.x, sysConfig.video.resolution.y/2 - uiElementTest->size.y);
+    uiElementTest->color = Color::Green();
 	uiManager->AddRoot(uiElementTest);
 	std::cout << "add UI element root "<< std::endl;
+
+    //uji coba Audio
+    #define AUDIO_PATH "D:/games/TSMOD.NET/valve/sound/fvox/hev_shutdown.wav"
+    audio->loadSound("hev_on", AUDIO_PATH);
+    audio->playSound("hev_on");
 
     std::cout << "Engine initialized.\n";
 }
