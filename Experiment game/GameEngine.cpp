@@ -32,7 +32,7 @@ void GameEngine::init() {
 	}
 
 	//cara memasang callback
-	windows->setInputCallback(std::bind(&InputManager::testCallBackInput, inputManager, std::placeholders::_1));
+	windows->setInputCallback(std::bind(&InputManager::CallBackInput, inputManager, std::placeholders::_1));
 
 
     // Renderer
@@ -63,14 +63,14 @@ void GameEngine::init() {
 	std::cout << "add UI element root "<< std::endl;
 
     //uji coba Audio
-    #define AUDIO_PATH "D:/games/TSMOD.NET/valve/sound/fvox/hev_shutdown.wav"
-    audio->loadSound("hev_on", AUDIO_PATH);
-    audio->playSound("hev_on");
+    #define AUDIO_PATH "D:/games/TSMOD.NET/valve/sound/weapons/xbow_hit1.wav"
+    audio->loadSound("xbow", AUDIO_PATH);
 
     std::cout << "Engine initialized.\n";
 }
 
 void GameEngine::update() {
+
     if (platform) {
         platform->processPlatformEvents();
     }
@@ -79,6 +79,52 @@ void GameEngine::update() {
         //inputManager->updateAllDevices();
         //debugInput();
     }
+
+	// test moving
+	#define MOVE_X 0.1f
+	#define MOVE_Y 0.1f
+
+	static float velX = MOVE_X;
+	static float velY = MOVE_Y;
+
+	// gerak
+	uiElementTest->position.x += velX;
+	uiElementTest->position.y += velY;
+
+	// batas kanan & kiri
+	float rightLimit = sysConfig.video.resolution.x - uiElementTest->size.x;
+
+	if (uiElementTest->position.x >= rightLimit)
+	{
+		uiElementTest->position.x = rightLimit;
+		velX = -velX; // MANTUL KANAN
+		audio->playSound("xbow");
+	}
+
+	if (uiElementTest->position.x <= 0)
+	{
+		uiElementTest->position.x = 0;
+		velX = -velX; // MANTUL KIRI
+		audio->playSound("xbow");
+	}
+
+	// batas bawah & atas
+	float bottomLimit = sysConfig.video.resolution.y - uiElementTest->size.y;
+
+	if (uiElementTest->position.y >= bottomLimit)
+	{
+		uiElementTest->position.y = bottomLimit;
+		velY = -velY; // MANTUL BAWAH
+		audio->playSound("xbow");
+	}
+
+	if (uiElementTest->position.y <= 0)
+	{
+		uiElementTest->position.y = 0;
+		velY = -velY; // MANTUL ATAS
+		audio->playSound("xbow");
+	}
+	//end test moving
 
 	if(uiManager){
 		uiManager->Update();
