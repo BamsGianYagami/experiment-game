@@ -24,7 +24,7 @@ public:
     void registerDevice(IInputDevice* device);
     void updateAllDevices();
 
-	void testCallBackInput(const InputEvent& e);
+	void CallBackInput(const InputEvent& e);
 
 	template<typename T> T* getDevice();
 
