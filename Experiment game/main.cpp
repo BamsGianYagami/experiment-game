@@ -21,6 +21,10 @@ GameEngine *engine;
  */
 int _tmain(int argc, _TCHAR* argv[])
 {
+	LARGE_INTEGER frequency, start, end;
+    QueryPerformanceFrequency(&frequency);
+    QueryPerformanceCounter(&start);
+
 	engine = new GameEngine();
 
     engine->init();
@@ -33,7 +37,11 @@ int _tmain(int argc, _TCHAR* argv[])
 
     delete engine;
 
-    return 0;
+	QueryPerformanceCounter(&end);
+    double durationSec = double(end.QuadPart - start.QuadPart) / double(frequency.QuadPart);
+    std::cout << "Program lifetime: " << durationSec << " s\n";
+
+	return 0;
 }
 
 /**
